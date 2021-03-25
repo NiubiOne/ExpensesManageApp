@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
 import java.sql.Date;
+import java.util.*;
 
 @RestController
 public class Controller {
@@ -24,10 +24,18 @@ public class Controller {
     }
 
     @GetMapping("/expenses")
-    public List<Expense> getAll(){
+    public Map<String, List<Expense>> getAll(){
+        Set<Date> dates = new TreeSet<>();
+        Map<String,List<Expense>> map = new LinkedHashMap<>();
          list = repository.findAll();
-        list.sort(new SortByDate());
-        return list;
+         for (Expense i:list){
+             dates.add(i.getDate());
+         }
+         for (Date j:dates){
+             map.put(j.toString(),repository.findByDate(j));
+         }
+
+        return map;
 
     }
 
