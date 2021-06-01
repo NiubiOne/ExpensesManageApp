@@ -1,4 +1,4 @@
-package com.test.ExpensesManage;
+package com.test.ExpensesManage.entities;
 
 
 import javax.persistence.Entity;
@@ -9,23 +9,26 @@ import java.sql.Date;
 
 
 @Entity
-public class Expense {
+public class Expenses {
     private @Id @GeneratedValue long  id;
     private Date date;
     private double amount;
     private String currency;
     private String product;
 
-    public Expense() {
+    public Expenses() {
     }
 
-    public Expense(Date date, double amount, String currency, String product) {
+    public Expenses(Date date, double amount, String currency, String product) {
         this.date = date;
         this.amount = amount;
         this.currency = currency;
         this.product = product;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Date getDate() {
         return date;
@@ -47,11 +50,25 @@ public class Expense {
         return id;
     }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
 
     @Override
     public String toString() {
-        return "Expense{" +
+        return "Expenses{" +
                 "id=" + id +
                 ", date=" + date +
                 ", amount=" + amount +

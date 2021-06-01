@@ -1,6 +1,6 @@
 package com.test.ExpensesManage;
 
-import org.junit.Assert;
+import com.test.ExpensesManage.entities.Expenses;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,11 +9,11 @@ import java.sql.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ExpenseTest {
-    Expense expense;
+    Expenses expense;
 
     @BeforeEach
     void setUp() {
-        expense = new Expense(new Date(2021-3-20),4,"USD","Apples");
+        expense = new Expenses(new Date(2021-3-20),4,"USD","Apples");
     }
 
     @Test

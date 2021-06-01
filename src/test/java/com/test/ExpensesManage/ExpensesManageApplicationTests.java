@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ExpensesManageApplicationTests {
 
 	@Autowired
-	private Controller controller;
+	private ExpensesController controller;
 
 	@Test
 	public void contextLoads() throws Exception {
